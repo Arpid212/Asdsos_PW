@@ -1,9 +1,12 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'user') {
-    header("Location: login.php");
+
+// Jika pengguna sudah login dan role-nya 'user', langsung arahkan ke halaman utama.
+if (isset($_SESSION['user_id']) && $_SESSION['role'] === 'user') {
+    header("Location: dashboard.php");  // Ganti dengan halaman yang sesuai untuk pengguna
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>
