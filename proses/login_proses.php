@@ -14,7 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Menggunakan prepared statement untuk mencegah SQL Injection
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT users.id, users.username, users.password, role.role_name 
+                            FROM users 
+                            JOIN role ON users.role_id = role.id_role 
+                            WHERE users.username = ?");
     if (!$stmt) {
         // Jika query gagal
         echo "<script>alert('Database query error.'); window.location.href='../login.php';</script>";
@@ -25,17 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
+
     if ($user && password_verify($password, $user['password'])) {
-        // Debugging: Cetak nilai role
-        echo "Role: " . $user['role'];  // Untuk memastikan role terbaca
-   
         // Menyimpan data user ke dalam session
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['role'] = $user['role'];
+        $_SESSION['role'] = $user['role_name'];
         $_SESSION['username'] = $user['username'];
-   
+
         // Redirect berdasarkan role
-        if (strtolower($user['role']) === 'admin') {
+        if (strtolower($user['role_name']) === 'admin') {
             // Redirect ke dashboard untuk admin
             header("Location: ../dashboard.php"); 
             exit();
@@ -48,6 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Jika login gagal
         echo "<script>alert('Login gagal! Username atau password salah.'); window.location.href='../login.php';</script>";
     }
+
+    $stmt->close();
+} else {
+    // Jika akses langsung ke file login_proses.php
+    echo "<script>alert('Akses tidak valid!'); window.location.href='../login.php';</script>";
 }
+
 $conn->close();
 ?>

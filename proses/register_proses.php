@@ -1,5 +1,5 @@
 <?php
-// Menggunakan path relatif untuk koneksi.php
+// Menggunakan path relatif untuk koneksi
 include 'koneksi.php';
 
 session_start();
@@ -28,16 +28,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Hash password untuk keamanan
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
+        // id_role default untuk "member" adalah 2
+        $default_role_id = 2;
+
         // Menyimpan user baru ke database
-        $stmt = $conn->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, 'user')");
-        $stmt->bind_param("ss", $username, $hashed_password);
+        $stmt = $conn->prepare("INSERT INTO users (username, password, role_id) VALUES (?, ?, ?)");
+        $stmt->bind_param("ssi", $username, $hashed_password, $default_role_id);
 
         if ($stmt->execute()) {
             // Jika registrasi berhasil
             echo "<script>alert('Registrasi berhasil! Silakan login.'); window.location.href='../login.php';</script>";
         } else {
             // Jika registrasi gagal
-            echo "<script>alert('Registrasi gagal!'); window.location.href='../register.php';</script>";
+            echo "<script>alert('Registrasi gagal! Silakan coba lagi.'); window.location.href='../register.php';</script>";
         }
     }
 
