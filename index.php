@@ -44,14 +44,14 @@ if (isset($_SESSION['user_id']) && $_SESSION['role'] === 'user') {
             </div>
             <div class="d-flex menu ms-auto align-items-center">
                 <div class="menu-group">
-                    <a href="">Beranda</a>
-                    <a href="">Kantor</a>
+                    <a href="http://localhost/Asdsos_PW/index.php">Beranda</a>
+                    <a href="http://localhost/Asdsos_PW/lelang.html">Lelang</a>
                     <a href="">Pusat Bantuan</a>
                     <a href=""></a>
                 </div>
                 <div class="button-group">
                     <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
-                    <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-2">Daftar</a>
+                    <a href="http://localhost/Asdsos_PW/register.php" class="btn" id="btn-2">Daftar</a>
                 </div>
             </div>
         </nav>
