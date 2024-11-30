@@ -1,3 +1,4 @@
+<?php include 'proses/fungsidb.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +36,12 @@
             <form action="http://localhost/Asdsos_PW/proses/register_proses.php" method="POST" class="d-flex flex-column">
                 <div class="box-group d-flex flex-column align-items-center">
                     <div class="box-text">
-                        <img src="/Main/assets/auth/username.png">
+                        <img src="http://localhost/Asdsos_PW/Main/assets/auth/username.png">
                         <label for="username"></label>
                         <input type="text" name="username" id="username" placeholder="Masukan Username" required>
                     </div>
                     <div class="box-text">
-                        <img src="/Main/assets/auth/password.png" alt="">
+                        <img src="http://localhost/Asdsos_PW/Main/assets/auth/password.png" alt="">
                         <label for="password"></label>
                         <input type="password" name="password" id="password" placeholder="Masukan Password" required>
                     </div>

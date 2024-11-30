@@ -28,13 +28,13 @@
     <div class="container-md">
         <nav class="navbar navbar-expand-lg d-flex custom-navbar">
             <div class="brand">
-                <img class="img-fluid" id="logo-collapse" src="/Documents/">
+                <img class="img-fluid" id="logo-collapse" src="http://localhost/Asdsos_PW/Documents/">
                 Lelang
             </div>
             <div class="d-flex menu ms-auto align-items-center">
                 <div class="menu-group">
-                    <a href="http://localhost/Asdsos_PW/index.php">Beranda</a>
-                    <a href="http://localhost/Asdsos_PW/lelang.html">Lelang</a>
+                    <a href="http://localhost/Asdsos_PW/home.php">Beranda</a>
+                    <a href="http://localhost/Asdsos_PW/lelang.php">Lelang</a>
                     <a href="">Pusat Bantuan</a>
                     <a href=""></a>
                 </div>

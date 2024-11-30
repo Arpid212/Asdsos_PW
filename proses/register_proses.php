@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $default_role_id = 2;
 
         // Menyimpan user baru ke database
-        $stmt = $conn->prepare("INSERT INTO users (username, password, role_id) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO users (username, password_hash, id_role) VALUES (?, ?, ?)");
         $stmt->bind_param("ssi", $username, $hashed_password, $default_role_id);
 
         if ($stmt->execute()) {

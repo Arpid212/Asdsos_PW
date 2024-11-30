@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php'; 
+include 'koneksi.php';
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -11,10 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    $stmt = $conn->prepare("SELECT users.id, users.username, users.password, users.role_id, role.role_name 
-                            FROM users 
-                            JOIN role ON users.role_id = role.role_id
-                            WHERE users.username = ?");
+    // Query untuk mendapatkan data user berdasarkan username
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
     if (!$stmt) {
         echo "Error pada query: " . $conn->error;
         exit();
@@ -25,23 +23,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['role_id'] = $user['role_id'];
-        $_SESSION['username'] = $user['username'];
+    if ($user) {
+        // Verifikasi password
+        if (password_verify($password, $user['password_hash'])) {
+            // Set data user ke dalam session
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['id_role'] = $user['id_role'];
 
-        if ($user['role_id'] == 1) { 
-            header("Location: ../dashboard.php");
-            exit();
-        } elseif ($user['role_id'] == 2) {
-            header("Location: ../home.php");
-            exit();
+            // Redirect berdasarkan role (tanpa query JOIN)
+            switch ($user['id_role']) {
+                case 1: // Role admin
+                    if ($username === 'admin') {
+                        header("Location: ../dashboard.php");
+                    } else {
+                        echo "<script>alert('Akses ditolak!'); window.location.href='../login.php';</script>";
+                    }
+                    break;
+                case 2: // Role member
+                    header("Location: ../home.php");
+                    break;
+                default:
+                    echo "<script>alert('Role tidak dikenali!'); window.location.href='../login.php';</script>";
+                    break;
+            }
         } else {
-            echo "<script>alert('Role tidak dikenali!'); window.location.href='../login.php';</script>";
-            exit();
+            echo "<script>alert('Password salah!'); window.location.href='../login.php';</script>";
         }
     } else {
-        echo "<script>alert('Login gagal! Username atau password salah.'); window.location.href='../login.php';</script>";
+        echo "<script>alert('Username tidak ditemukan!'); window.location.href='../login.php';</script>";
     }
 
     $stmt->close();

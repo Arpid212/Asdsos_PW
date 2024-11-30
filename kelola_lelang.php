@@ -1,9 +1,10 @@
 <?php
 session_start();
-include 'proses/koneksi.php';
+include 'proses/koneksi.php'; // Pastikan file koneksi database sudah benar
 
-if ($_SESSION['role'] != 'admin') {
-    header("Location: dashboard.php");
+// Cek apakah user sudah login dan memiliki akses admin
+if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
+    echo "<script>alert('Akses ditolak! Anda tidak memiliki izin untuk mengakses halaman ini.'); window.location.href='../login.php';</script>";
     exit();
 }
 
