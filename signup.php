@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +32,7 @@
         </div>
         <div class="bg-form d-flex justify-content-center align-items-center flex-column">
             <h1>Daftar Akun</h1>
-            <form action="" class="d-flex flex-column">
+            <form action="http://localhost/Asdsos_PW/proses/register_proses.php" method="POST" class="d-flex flex-column">
                 <div class="box-group d-flex flex-column align-items-center">
                     <div class="box-text">
                         <img src="/Main/assets/auth/username.png">
@@ -39,21 +40,17 @@
                         <input type="text" name="username" id="username" placeholder="Masukan Username" required>
                     </div>
                     <div class="box-text">
-                        <img src="/Main/assets/auth/email.png" alt="">
-                        <label for="email"></label>
-                        <input type="email" name="email" id="email" placeholder="Masukan Email" required>
-                    </div>
-                    <div class="box-text">
                         <img src="/Main/assets/auth/password.png" alt="">
                         <label for="password"></label>
                         <input type="password" name="password" id="password" placeholder="Masukan Password" required>
                     </div>
                 </div>
-                
+            <div class="d-flex justify-content-center button-group">
+                    <input type="submit" value="Daftar">
+            </div>
             </form>
             <div class="d-flex justify-content-center button-group">
                     <a href="http://localhost/Asdsos_PW/login.php"><input type="submit" value="Sudah punya akun?" id="daftar"></a>
-                    <input type="submit" value="Daftar">
             </div>
         </div>
     </div>

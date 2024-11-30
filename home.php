@@ -1,12 +1,6 @@
 <?php
 session_start();
-
-// Jika pengguna sudah login dan role-nya 'user', langsung arahkan ke halaman utama.
-if (isset($_SESSION['user_id']) && $_SESSION['role'] === 'user') {
-    header("Location: dashboard.php");  // Ganti dengan halaman yang sesuai untuk pengguna
-    exit();
-}
-
+$login = isset($_SESSION['username']); // Periksa apakah pengguna sudah login
 ?>
 
 <!DOCTYPE html>
@@ -44,14 +38,14 @@ if (isset($_SESSION['user_id']) && $_SESSION['role'] === 'user') {
             </div>
             <div class="d-flex menu ms-auto align-items-center">
                 <div class="menu-group">
-                    <a href="http://localhost/Asdsos_PW/index.php">Beranda</a>
+                    <a href="http://localhost/Asdsos_PW/home.php">Beranda</a>
                     <a href="http://localhost/Asdsos_PW/lelang.html">Lelang</a>
                     <a href="">Pusat Bantuan</a>
                     <a href=""></a>
                 </div>
                 <div class="button-group">
                     <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
-                    <a href="http://localhost/Asdsos_PW/register.php" class="btn" id="btn-2">Daftar</a>
+                    <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
                 </div>
             </div>
         </nav>

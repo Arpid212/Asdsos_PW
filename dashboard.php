@@ -1,11 +1,30 @@
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_lelang";
+$port = 3308; // Port MySQL Anda
+
+// Membuat koneksi
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
+
+// Cek koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
+
 session_start();
-if ($_SESSION['role'] !== 'admin') {
-    // Redirect jika bukan admin
-    header("Location: ../index.php");
+if (!isset($_SESSION['username']) || $_SESSION['role_id'] != 1) {
+    header("Location: http://localhost/Asdsos_PW/login.php");
     exit();
 }
 
+// Query untuk mendapatkan daftar barang
+$query = "SELECT * FROM barang";
+$result = $conn->query($query);
+if (!$result) {
+    die("Error pada query: " . $conn->error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +38,7 @@ if ($_SESSION['role'] !== 'admin') {
     <header>
         <h1>Selamat Datang di Lelang Online</h1>
         <nav>
-            <?php if ($role == 'admin'): ?>
+            <?php if ($_SESSION['role_id'] == 1): ?>
                 <a href="http://localhost/Asdsos_PW/kelola_lelang.php">Kelola Lelang</a>
             <?php endif; ?>
             <a href="http://localhost/Asdsos_PW/logout.php">Logout</a>

@@ -37,10 +37,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($stmt->execute()) {
             // Jika registrasi berhasil
-            echo "<script>alert('Registrasi berhasil! Silakan login.'); window.location.href='../login.php';</script>";
+            echo "<script>
+                    alert('Akun Anda sudah tersimpan. Silakan login.');
+                    window.location.href='../login.php';
+                  </script>";
+            exit();
         } else {
             // Jika registrasi gagal
-            echo "<script>alert('Registrasi gagal! Silakan coba lagi.'); window.location.href='../register.php';</script>";
+            echo "<script>alert('Registrasi gagal! Silakan coba lagi.'); window.location.href='../signup.php';</script>";
+            exit();
         }
     }
 
@@ -48,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else {
     // Jika akses tidak valid
     echo "<script>alert('Akses tidak valid!'); window.location.href='../register.php';</script>";
+    exit();
 }
 
 $conn->close();
