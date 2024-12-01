@@ -41,32 +41,31 @@ if (isset($_SESSION['username'])) {
 
 <body>
     <div class="container-md">
-        <nav class="navbar navbar-expand-lg d-flex custom-navbar">
-            <div class="brand">
+    <nav class="navbar navbar-expand-lg d-flex custom-navbar">
+        <div class="brand">
                 <img class="img-fluid" id="logo-collapse" src="http://localhost/Asdsos_PW/Documents/">
                 Lelang
+        </div>
+        <div class="d-flex menu ms-auto align-items-center justify-content-between">
+            <div class="menu-group d-flex align-items-center gap-4">
+                <a href="http://localhost/Asdsos_PW/home.php" class="nav-link">Beranda</a>
+                <div class="nav-item dropdown">
+                    <a href="http://localhost/Asdsos_PW/lelang.php" class="nav-link dropdown-toggle" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Lelang
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/lelang.php">Beli</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/tambah_barang.php">Jual</a></li>
+                    </ul>
+                </div>
+                <a href="http://localhost/Asdsos_PW/.." class="nav-link">Pusat Bantuan</a>
             </div>
-            <div class="d-flex menu ms-auto align-items-center justify-content-between">
-    <div class="menu-group d-flex align-items-center gap-4">
-        <a href="http://localhost/Asdsos_PW/home.php" class="nav-link">Beranda</a>
-        <div class="nav-item dropdown">
-            <a href="http://localhost/Asdsos_PW/lelang.php" class="nav-link dropdown-toggle" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Lelang
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/lelang.php">Beli</a></li>
-                <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/tambah_barang.php">Jual</a></li>
-            </ul>
-        </div>
-        <a href="http://localhost/Asdsos_PW/.." class="nav-link">Pusat Bantuan</a>
-    </div>
-        <div class="button-group">
-                    <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
-                    <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
-        </div>
- 
-
-        </nav>
+            <div class="button-group">
+                <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
+                <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
+            </div>
+    </nav>
+    
         <div class="main-1">
             <div class="welcome-text">
                 <h1>Selamat datang di Auction Vault</h1>
