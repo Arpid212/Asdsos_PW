@@ -67,7 +67,7 @@ if (!$result) {
                         <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/tambah_barang.php">Jual</a></li>
                     </ul>
                 </div>
-                <a href="http://localhost/Asdsos_PW/.." class="nav-link">Pusat Bantuan</a>
+                <a href="http://localhost/Asdsos_PW/pusatbantuan.php" class="nav-link">Pusat Bantuan</a>
             </div>
             <div class="button-group">
                 <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
