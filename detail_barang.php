@@ -27,14 +27,6 @@ $barang = $result->fetch_assoc();
     <p>Durasi Lelang: <?= $barang['durasi_lelang']; ?></p>
     <p>Status: <?= $barang['status']; ?></p>
 
-    <?php if ($_SESSION['role'] == 'user' && $barang['status'] == 'terverifikasi'): ?>
-        <form action="http://localhost/Asdsos_PW/proses/tawar_barang_proses.php" method="POST">
-            <input type="hidden" name="barang_id" value="<?= $barang['id']; ?>">
-            <input type="number" name="harga_penawaran" placeholder="Masukkan harga penawaran" required>
-            <button type="submit">Ajukan Penawaran</button>
-        </form>
-    <?php endif; ?>
-
     <a href="http://localhost/Asdsos_PW/dashboard.php">Kembali ke Dashboard</a>
 </body>
 </html>

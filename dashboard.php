@@ -65,6 +65,8 @@ if (!$result) {
                                 <a href="http://localhost/Asdsos_PW/detail_barang.php?id=<?= $row['id']; ?>" class="btn-detail">Detail</a>
                                 <a href="http://localhost/Asdsos_PW/edit_barang.php?id=<?= $row['id']; ?>" class="btn-edit">Edit</a>
                                 <a href="http://localhost/Asdsos_PW/hapus_barang.php?id=<?= $row['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus barang ini?');">Hapus</a>
+                                <a href="approved.php?id=<?= $row['id']; ?>" class="btn-approve" onclick="return confirm('Setujui barang ini?');">Approve</a>
+                                <a href="rejected.php?id=<?= $row['id']; ?>" class="btn-reject" onclick="return confirm('Tolak barang ini?');">Reject</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>

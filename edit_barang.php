@@ -2,11 +2,6 @@
 session_start();
 include 'proses/koneksi.php';
 
-if ($_SESSION['role'] != 'admin') {
-    header("Location: dashboard.php");
-    exit();
-}
-
 $barang_id = $_GET['id'];
 $query = "SELECT * FROM barang WHERE id = $barang_id";
 $result = $conn->query($query);

@@ -11,8 +11,8 @@ if ($conn->connect_error) {
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']); // Ambil ID barang dari URL
 
-    // Query untuk mendapatkan detail barang
-    $sql = "SELECT * FROM barang WHERE id = $id";
+    // Query untuk mendapatkan detail barang dengan status terverifikasi
+    $sql = "SELECT * FROM barang WHERE id = $id AND status = 'terverifikasi'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -20,22 +20,15 @@ if (isset($_GET['id'])) {
 
         // Cek jika form checkout disubmit
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Pembelian barang (update status dan hapus barang dari lelang)
-            $conn->query("UPDATE barang SET status = 'dibeli' WHERE id = $id");
-            
-            // Optional: Hapus barang dari tabel lelang setelah pembelian
-            // $conn->query("DELETE FROM barang WHERE id = $id");
-            
-            // Tampilkan pesan sukses pembelian
-            echo "<p>Barang berhasil dibeli: " . htmlspecialchars($barang['nama_barang']) . "</p>";
-            echo "<p>Proses checkout selesai. Terima kasih atas pembelian Anda.</p>";
+            // Update status barang menjadi 'terjual'
+            $conn->query("UPDATE barang SET status = 'terjual' WHERE id = $id");
 
-            // Redirect ke halaman lelang setelah pembelian (agar tidak melakukan refresh berulang)
-            header("Location: lelang.php");
+            // Tampilkan pesan sukses pembelian
+            echo "<script>alert('Barang berhasil dibeli: " . htmlspecialchars($barang['nama_barang']) . "'); window.location.href='home.php';</script>";
             exit;
         }
     } else {
-        echo "<p>Barang tidak ditemukan.</p>";
+        echo "<p>Barang tidak ditemukan atau sudah tidak tersedia.</p>";
     }
 } else {
     echo "<p>ID barang tidak valid.</p>";
@@ -69,7 +62,6 @@ $conn->close();
                 </div>
             </div>
         <?php endif; ?>
-
     </div>
 </body>
 </html>
