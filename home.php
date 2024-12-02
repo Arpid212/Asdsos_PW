@@ -31,7 +31,6 @@ if (isset($_SESSION['username'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,31 +40,25 @@ if (isset($_SESSION['username'])) {
 
 <body>
     <div class="container-md">
-    <nav class="navbar navbar-expand-lg d-flex custom-navbar">
-        <div class="brand">
-                <img class="img-fluid" id="logo-collapse" src="http://localhost/Asdsos_PW/Documents/">
+        <nav class="navbar navbar-expand-lg d-flex custom-navbar">
+            <div class="brand">
+                <img class="img-fluid" id="logo-collapse" src="/Documents/">
                 Lelang
-        </div>
-        <div class="d-flex menu ms-auto align-items-center justify-content-between">
-            <div class="menu-group d-flex align-items-center gap-4">
-                <a href="http://localhost/Asdsos_PW/home.php" class="nav-link">Beranda</a>
-                <div class="nav-item dropdown">
-                    <a href="http://localhost/Asdsos_PW/lelang.php" class="nav-link dropdown-toggle" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Lelang
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/lelang.php">Beli</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/tambah_barang.php">Jual</a></li>
-                    </ul>
+            </div>
+            <div class="d-flex menu ms-auto align-items-center">
+                <div class="menu-group">
+                    <a href="home.php">Beranda</a>
+                    <a href="lelang.php">Lelang</a>
+                    <a href="pusatbantuan.php">Pusat Bantuan</a>
+                    <a href=""></a>
                 </div>
-                <a href="http://localhost/Asdsos_PW/pusatbantuan.php" class="nav-link">Pusat Bantuan</a>
+                <div class="button-group">
+                    <a href="login.html" class="btn" id="btn-1">Masuk</a>
+                    <a href="signup.html" class="btn" id="btn-2">Daftar</a>
+                </div>
             </div>
-            <div class="button-group">
-                <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
-                <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
-            </div>
-    </nav>
-    
+        </nav>
+
         <div class="main-1">
             <div class="welcome-text">
                 <h1>Selamat datang di Auction Vault</h1>
@@ -80,12 +73,30 @@ if (isset($_SESSION['username'])) {
         <div class="main-2">
             <h2 class="text-center">Penawaran Lelang</h2>
             <div class="penawaran-group d-flex justify-content-center">
-                <div class="penawaran"></div>
-                <div class="penawaran"></div>
-                <div class="penawaran"></div>
-                <div class="penawaran"></div>
-                <div class="penawaran"></div>
-                <div class="penawaran"></div>
+                <div class="penawaran d-flex flex-column justify-content-center align-items-center">
+                    <img src="assets/penawaran/elektronik.png">
+                    <h5>Elektronik</h5>
+                </div>
+                <div class="penawaran d-flex flex-column justify-content-center align-items-center">
+                    <img src="assets/penawaran/rumah.png">
+                    <h5>Rumah</h5>
+                </div>
+                <div class="penawaran d-flex flex-column justify-content-center align-items-center">
+                    <img src="assets/penawaran/mobil.png">
+                    <h5>Mobil</h5>
+                </div>
+                <div class="penawaran d-flex flex-column justify-content-center align-items-center">
+                    <img src="assets/penawaran/motor.png">
+                    <h5>Motor</h5>
+                </div>
+                <div class="penawaran d-flex flex-column justify-content-center align-items-center">
+                    <img src="assets/penawaran/tanah.png">
+                    <h5>Tanah</h5>
+                </div>
+                <div class="penawaran d-flex flex-column justify-content-center align-items-center">
+                    <img src="assets/penawaran/other.png">
+                    <h5>Lain-Lain</h5>
+                </div>
             </div>
 
         </div>
@@ -95,8 +106,8 @@ if (isset($_SESSION['username'])) {
         <div class="hot d-flex align-items-end">
             <div class="tawar">
                 <div class="judul-tawar d-flex align-items-center">
-                    <div class="logo"></div>
-                    <div class="ms-auto p">
+                    <img src="assets/apart.png">
+                    <div class="p">
                         Salatiga City II
                     </div>
                 </div>
@@ -149,12 +160,56 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
     </div>
-    <footer class="custom-footer d-flex justify-content-center flex-column">
+    <footer class="custom-footer d-flex flex-column">
+        <div class="footer-main d-flex container-lg">
+            <div class="items"><img src="assets/" alt="">
+            </div>
+            <div class="items">
+                <h4>Layanan</h4>
+                <p>Daftar Barang Lelang</p>
+                <p>Daftar Kelas Lelang</p>
+                <p>Ijin Operasional Perlelangan</p>
+                <p>Lowongan Kerja Part II</p>
+                <p>Laporan Kinerja</p>
+                <p>Ijin Pindah Wilayah Jabatan</p>
+                <p>Ijin Bolos Kuliah</p>
+            </div>
+            <div class="items">
+                <h4>Hubungi Kami</h4>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/call.png">
+                    </div>
+                    <p>Call Center 692-691</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/email.png">
+                    </div>
+                    <p>auction.care@uksw.edu</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/facebook.png">
+                    </div>
+                    <p>Auction Vault</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/lokasi.png">
+                    </div>
+                    <p>Gedung FTI UKSW, Jl. Notohomidjodjo, Blotongan, Salatiga</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright d-flex justify-content-start align-items-center">
+            <p>© Pasteright 2024. Auction Vault, Universitas Kristen Satya Wacana.</p>
+        </div>
     </footer>
 
 
     <!-- Bootstrap JS (with Popper.js for dropdown functionality) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

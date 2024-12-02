@@ -36,7 +36,7 @@ if (!$result) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,59 +49,109 @@ if (!$result) {
 
 
 <body>
-<div class="container-md">
-    <nav class="navbar navbar-expand-lg d-flex custom-navbar">
-        <div class="brand">
-                <img class="img-fluid" id="logo-collapse" src="http://localhost/Asdsos_PW/Documents/">
+    <div class="container-md">
+        <nav class="navbar navbar-expand-lg d-flex custom-navbar">
+            <div class="brand">
+                <img class="img-fluid" id="logo-collapse" src="/Documents/">
                 Lelang
+            </div>
+            <div class="d-flex menu ms-auto align-items-center">
+                <div class="menu-group">
+                    <a href="home.php">Beranda</a>
+                    <a href="lelang.php">Lelang</a>
+                    <a href="pusatbantuan.php">Pusat Bantuan</a>
+                    <a href=""></a>
+                </div>
+                <div class="button-group">
+                    <a href="login.html" class="btn" id="btn-1">Masuk</a>
+                    <a href="signup.html" class="btn" id="btn-2">Daftar</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+    <div class="main-lelang-ajuan d-flex justify-content-center">
+        <div class="container d-flex flex-column align-items-center">
+            <h1>Anda ingin mengajukan lelang ke Auction Vault?</h1>
+            <p>Daftarkan sekarang juga barang yang ingin anda lelangkan!</p>
+            <a href="ajuan.php" class="btn" id="btn-dftl">Daftar Sekarang!</a>
         </div>
-        <div class="d-flex menu ms-auto align-items-center justify-content-between">
-            <div class="menu-group d-flex align-items-center gap-4">
-                <a href="http://localhost/Asdsos_PW/home.php" class="nav-link">Beranda</a>
-                <div class="nav-item dropdown">
-                    <a href="http://localhost/Asdsos_PW/lelang.php" class="nav-link dropdown-toggle" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Lelang
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/lelang.php">Beli</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/tambah_barang.php">Jual</a></li>
-                    </ul>
-                </div>
-                <a href="http://localhost/Asdsos_PW/pusatbantuan.php" class="nav-link">Pusat Bantuan</a>
-            </div>
-            <div class="button-group">
-                <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
-                <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
-            </div>
-    </nav>
-
-
-        <!-- Katalog -->
+    </div>
+    <!-- Katalog -->
+    <div class="container-md">
         <div class="main-lelang-1">
-        <h2>Katalog Lot Lelang</h2>
-        <div class="lelang-container d-flex flex-wrap">
-            <?php if ($result->num_rows > 0): ?>
-                <?php while ($row = $result->fetch_assoc()): ?>
-                    <div class="card m-2" style="width: 18rem;">
-                        <img src="<?= htmlspecialchars($row['gambar']); ?>" class="card-img-top" alt="<?= htmlspecialchars($row['nama_barang']); ?>">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= htmlspecialchars($row['nama_barang']); ?></h5>
-                            <p class="card-text">Harga Awal: Rp <?= number_format($row['harga_awal'], 0, ',', '.'); ?></p>
-                            <p class="card-text">Durasi: <?= date('d-m-Y H:i', strtotime($row['durasi_lelang'])); ?></p>
-                            <a href="beli.php?id=<?= $row['id']; ?>" class="btn btn-primary">Beli</a>
+            <h2>Katalog Lot Lelang</h2>
+            <div class="lelang-container d-flex flex-wrap">
+                <?php if ($result->num_rows > 0): ?>
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <div class="card m-2" style="width: 18rem;">
+                            <img src="<?= htmlspecialchars($row['gambar']); ?>" class="card-img-top"
+                                alt="<?= htmlspecialchars($row['nama_barang']); ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= htmlspecialchars($row['nama_barang']); ?></h5>
+                                <p class="card-text">Harga Awal: Rp <?= number_format($row['harga_awal'], 0, ',', '.'); ?></p>
+                                <p class="card-text">Durasi: <?= date('d-m-Y H:i', strtotime($row['durasi_lelang'])); ?></p>
+                                <a href="beli.php?id=<?= $row['id']; ?>" class="btn btn-primary">Beli</a>
+                            </div>
                         </div>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <p>Tidak ada barang yang tersedia untuk dilelang.</p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="custom-footer d-flex flex-column">
+        <div class="footer-main d-flex container-lg">
+            <div class="items"><img src="/docs/assets/" alt="">
+            </div>
+            <div class="items">
+                <h4>Layanan</h4>
+                <p>Daftar Barang Lelang</p>
+                <p>Daftar Kelas Lelang</p>
+                <p>Ijin Operasional Perlelangan</p>
+                <p>Lowongan Kerja Part II</p>
+                <p>Laporan Kinerja</p>
+                <p>Ijin Pindah Wilayah Jabatan</p>
+                <p>Ijin Bolos Kuliah</p>
+            </div>
+            <div class="items">
+                <h4>Hubungi Kami</h4>
+                <div class="contact">
+                    <div class="img">
+                        <img src="/docs/assets/footer/call.png">
                     </div>
-                <?php endwhile; ?>
-                    <?php else: ?>
-                        <p>Tidak ada barang yang tersedia untuk dilelang.</p>
-                    <?php endif; ?>
+                    <p>Call Center 692-691</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="/docs/assets/footer/email.png">
+                    </div>
+                    <p>auction.care@uksw.edu</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="/docs/assets/footer/facebook.png">
+                    </div>
+                    <p>Auction Vault</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="/docs/assets/footer/lokasi.png">
+                    </div>
+                    <p>Gedung FTI UKSW, Jl. Notohomidjodjo, Blotongan, Salatiga</p>
                 </div>
             </div>
-
-
-    <footer class="custom-footer d-flex justify-content-center flex-column">
+        </div>
+        <div class="copyright d-flex justify-content-start align-items-center">
+            <p>© Pasteright 2024. Auction Vault, Universitas Kristen Satya Wacana.</p>
+        </div>
     </footer>
+</body>
 
-    </body>
 </html>
 <?php $conn->close(); ?>

@@ -17,7 +17,7 @@ if (isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pusat Bantuan | AuctionVault</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost/Asdsos_PW/assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
@@ -25,31 +25,25 @@ if (isset($_SESSION['username'])) {
 </head>
 
 <body>
-<div class="container-md">
-    <nav class="navbar navbar-expand-lg d-flex custom-navbar">
-        <div class="brand">
-                <img class="img-fluid" id="logo-collapse" src="http://localhost/Asdsos_PW/Documents/">
+    <div class="container-md">
+        <nav class="navbar navbar-expand-lg d-flex custom-navbar">
+            <div class="brand">
+                <img class="img-fluid" id="logo-collapse" src="/Documents/">
                 Lelang
-        </div>
-        <div class="d-flex menu ms-auto align-items-center justify-content-between">
-            <div class="menu-group d-flex align-items-center gap-4">
-                <a href="http://localhost/Asdsos_PW/home.php" class="nav-link">Beranda</a>
-                <div class="nav-item dropdown">
-                    <a href="http://localhost/Asdsos_PW/lelang.php" class="nav-link dropdown-toggle" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Lelang
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/lelang.php">Beli</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/Asdsos_PW/tambah_barang.php">Jual</a></li>
-                    </ul>
+            </div>
+            <div class="d-flex menu ms-auto align-items-center">
+                <div class="menu-group">
+                    <a href="home.php">Beranda</a>
+                    <a href="lelang.php">Lelang</a>
+                    <a href="pusatbantuan.php">Pusat Bantuan</a>
+                    <a href=""></a>
                 </div>
-                <a href="http://localhost/Asdsos_PW/pusatbantuan.php" class="nav-link">Pusat Bantuan</a>
+                <div class="button-group">
+                    <a href="login.html" class="btn" id="btn-1">Masuk</a>
+                    <a href="signup.html" class="btn" id="btn-2">Daftar</a>
+                </div>
             </div>
-            <div class="button-group">
-                <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
-                <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
-            </div>
-    </nav>
+        </nav>
 
         <div class="main-1 text-center mt-5">
             <h1 class="mb-4"><?= $welcomeMessage; ?></h1>
@@ -65,11 +59,13 @@ if (isset($_SESSION['username'])) {
                 </div>
                 <div class="faq-item mb-4">
                     <h4 class="question">Bagaimana cara melakukan penawaran?</h4>
-                    <p class="answer">Pilih item yang ingin Anda tawar, lalu klik tombol "Tawar Sekarang" dan ikuti panduan selanjutnya.</p>
+                    <p class="answer">Pilih item yang ingin Anda tawar, lalu klik tombol "Tawar Sekarang" dan ikuti
+                        panduan selanjutnya.</p>
                 </div>
                 <div class="faq-item mb-4">
                     <h4 class="question">Bagaimana jika saya mengalami masalah teknis?</h4>
-                    <p class="answer">Anda dapat menghubungi tim dukungan kami melalui email di <a href="mailto:support@auctionvault.com">support@auctionvault.com</a>.</p>
+                    <p class="answer">Anda dapat menghubungi tim dukungan kami melalui email di <a
+                            href="mailto:support@auctionvault.com">support@auctionvault.com</a>.</p>
                 </div>
             </div>
         </div>

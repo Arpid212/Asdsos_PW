@@ -40,7 +40,7 @@ $login = isset($_SESSION['username']); // Periksa apakah pengguna sudah login
             <form action="http://localhost/Asdsos_PW/proses/login_proses.php" method="POST" class="d-flex flex-column">
                 <div class="box-group d-flex flex-column align-items-center">
                     <div class="box-text">
-                        <img src="/Main/assets/auth/username.png">
+                        <img src="../assets/auth/username.png">
                         <label for="username"></label>
                         <input type="text" name="username" id="username" placeholder="Username" required>
                     </div>

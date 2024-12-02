@@ -32,73 +32,41 @@ body {
     margin-top: 40px;
     height: 600px;
 }
-.menu-group {
-    display: flex;
+
+.menu-group a {
+    text-decoration: none;
+    color: #0b60ae;
+    font-size: 18px;
+    margin-right: 30px;
+}
+
+.button-group {
     align-items: center;
-    gap: 2rem; /* Jarak antar item menu */
-}
-
-.nav-link {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: #007bff; /* Warna hover */
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    padding: 0.5rem 1rem;
-}
-
-.dropdown-item {
-    display: block;
-    padding: 0.5rem;
-    text-decoration: none;
-    color: #000;
-    transition: background-color 0.3s ease;
-}
-
-.dropdown-item:hover {
-    background-color: #f8f9fa;
-}
-
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.button-group a {
-    text-decoration: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
 }
 
 #btn-1 {
-    background-color: #ffffff; /* Warna tombol Masuk */
-}
-
-#btn-1:hover {
-    background-color: whitesmoke;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    border: #0b60ae 2.4px solid;
+    border-radius: 7px;
+    color: #0b60ae;
+    margin-right: 10px;
+    height: 50px;
+    width: 100px;
 }
 
 #btn-2 {
-    background-color: #28a745; /* Warna tombol Daftar */
+    background-color: #0b60ae;
+    font-weight: 600;
+    font-size: 20px;
+    border: #0b60ae 2.4px solid;
+    border-radius: 7px;
+    color: white;
+    height: 50px;
+    width: 100px;
 }
 
-#btn-2:hover {
-    background-color: #218838;
-}
 
 .main-2 {
     color: #0b60ae;
@@ -106,10 +74,11 @@ body {
 
 .penawaran {
     width: 200px;
-    height: 200px;
+    height: 195px;
     margin: 20px;
     border: #0b5fae53 2.4px solid;
     border-radius: 7px;
+    opacity: 90%;
 }
 
 .main-3 {
@@ -127,6 +96,12 @@ body {
 .main-4 {
     height: 200px;
 }
+
+.home {}
+
+.hot {}
+
+.hot .tawar {}
 
 .tawar {
     margin-bottom: 20px;
@@ -200,11 +175,6 @@ body {
 
 .isi-2 p {
     color: black;
-}
-
-footer {
-    background-color: #0b60ae;
-    height: 380px;
 }
 
 .bg-form {
@@ -419,4 +389,163 @@ input::placeholder {
     color: black;
     background: linear-gradient(45deg, #ffd700, #ffac00, #ff8c00);
     border: none;
+}
+.penawaran img {
+    width: 52px;
+    height: 50px;
+    object-fit: fill;
+    margin-bottom: 20px;
+}
+.judul-tawar img {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+}
+.penawaran:hover {
+    border: #0b5fae 3px solid;
+    opacity: 100%;
+}
+
+footer {
+    background-color: #0b60ae;
+    height: 400px;
+}
+.footer-main {
+    height: 350px;
+}
+.footer-main .items img {
+    width: 200px;
+    height: 200px;
+}
+.footer-main .items {
+    width: 700px;
+    height: 260px;
+    margin: 35px;
+    margin-top: 50px;
+    color: white;
+}
+.footer-main .items p{
+    font-size: 15px;
+    margin: 0;
+    margin-top: 5px;
+}
+.footer-main .items h4 {
+    margin-bottom: 20px;
+}
+.contact {
+    display: flex;
+}
+.contact .img {
+    margin-top: 2px;
+    width: 30px;
+}
+.img img{
+    width: 100%;
+    object-fit: cover;
+}
+.items .contact img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.copyright {
+    background-color: #0c5192;
+    height: 120px;
+    border-top: white 1.5px solid;
+}
+.copyright p {
+    margin-top: 15px;
+    margin-left: 30px;
+    color: white;
+    font-size: 18px;
+}
+.bg-img .img{
+    width: 290px;
+}
+.bg-img .img img {
+    width: 100%;
+    object-fit: cover;
+}
+.main-lelang-ajuan {
+    color: white;
+    background-color: #0b5fae;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+#btn-dftl {
+    color: #0b5fae;
+    background-color: whitesmoke;
+}
+.main-ajuan .sub-main {
+    border: #0b5fae53 2.4px solid;
+    width: 100%;
+    margin-bottom: 100px;
+}
+.form {
+    width: 100%;
+    padding-bottom: 40px;
+}
+.main-ajuan form {
+    color: #0b5fae;
+}
+.form hr {
+    background-color: #0b5fae;
+    margin-top: 20px;
+}
+.form h2 {
+    margin-top: 30px;
+}
+.form {
+    margin-left: 10px;
+}
+.form-input {
+    margin-top: 25px;
+}
+.form-input input {
+    margin-top: 0;
+    color: #0b5fae;
+    width: 400px;
+    background-color: whitesmoke;
+    border: #0b5fae53 2.4px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.form-input select {
+    height: 39px;
+    color: #0b5fae;
+    width: 400px;
+    background-color: whitesmoke;
+    border: #0b5fae53 2.4px solid;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.form-input label{
+    width: 170px;
+}
+#alamat {
+    width: 500px;
+}
+#deskripsi {
+    width: 800px;
+}
+#kategori {
+    width: 200px;
+}
+#notlpn {
+    width: 250px;
+}
+#nik {
+    width: 330px;
+}
+#harga {
+    width: 300px;
+}
+#foto {
+    width: 250px;
 }
