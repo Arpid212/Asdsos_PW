@@ -47,14 +47,14 @@ if (isset($_SESSION['username'])) {
             </div>
             <div class="d-flex menu ms-auto align-items-center">
                 <div class="menu-group">
-                    <a href="home.php">Beranda</a>
-                    <a href="lelang.php">Lelang</a>
-                    <a href="pusatbantuan.php">Pusat Bantuan</a>
+                    <a href="http://localhost/Asdsos_PW/home.php">Beranda</a>
+                    <a href="http://localhost/Asdsos_PW/lelang.php">Lelang</a>
+                    <a href="http://localhost/Asdsos_PW/pusatbantuan.php">Pusat Bantuan</a>
                     <a href=""></a>
                 </div>
                 <div class="button-group">
-                    <a href="login.html" class="btn" id="btn-1">Masuk</a>
-                    <a href="signup.html" class="btn" id="btn-2">Daftar</a>
+                    <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
+                    <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
                 </div>
             </div>
         </nav>
