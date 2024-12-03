@@ -29,67 +29,43 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="http://localhost/Asdsos_PW/style.css">
-<style>
-    /* Atur ukuran logo */
-.brand img {
-    max-height: 50px; /* Sesuaikan dengan ukuran yang diinginkan */
-    width: auto; /* Otomatis sesuaikan lebar dengan proporsi */
-    margin-right: 10px; /* Tambahkan jarak dengan teks "Lelang" jika perlu */
-    display: inline-block;
-    vertical-align: middle; /* Sejajarkan dengan teks */
-}
-
-/* Tambahkan style untuk brand */
-.brand {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem; /* Ukuran teks di sebelah logo */
-    font-weight: bold;
-    color: #000; /* Warna teks */
-}
-
-</style>
 </head>
 
 <body>
     <div class="container-md">
-    <div class="container-md">
-    <nav class="navbar navbar-expand-lg d-flex custom-navbar">
-
-        <div class="brand">
-            <img class="img-fluid" id="logo-collapse" src="assets/auth/lelang.png" alt="Logo">
-            Lelang
-        </div>
-
-
-        <div class="d-flex menu ms-auto align-items-center">
-            <div class="menu-group">
-                <a href="http://localhost/Asdsos_PW/home.php">Beranda</a>
-                <a href="http://localhost/Asdsos_PW/lelang.php">Lelang</a>
+        <nav class="navbar navbar-expand-lg d-flex custom-navbar">
+            <div class="brand">
+                <img class="img-fluid" id="logo-collapse" src="assets/auth/lelang.png" alt="Logo">
+                <p>Lelang</p>
             </div>
-            
-        <div class="welcome-message">
-            <?php if (isset($_SESSION['username'])): ?>
-                <!-- Jika pengguna sudah login -->
-                <span class="welcome-text"><?php echo htmlspecialchars($_SESSION['username']);?></span>
-            <?php else: ?>
+            <div class="d-flex menu ms-auto align-items-center">
+                <div class="menu-group">
+                    <a href="http://localhost/Asdsos_PW/home.php">Beranda</a>
+                    <a href="http://localhost/Asdsos_PW/lelang.php">Lelang</a>
+                </div>
 
-            <?php endif; ?>
-        </div>
+                <div class="welcome-message">
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <!-- Jika pengguna sudah login -->
+                        <span class="welcome-text"><?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                    <?php else: ?>
 
-            <div class="button-group">
-                <?php if (isset($_SESSION['user_id'])): ?>
-                    <!-- Jika pengguna sudah login -->
-                    <a href="http://localhost/Asdsos_PW/logout.php" class="btn" id="btn-1">Keluar</a>
-                <?php else: ?>
-                    <!-- Jika pengguna belum login -->
-                    <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
-                <?php endif; ?>
-                <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
+                    <?php endif; ?>
+                </div>
+
+                <div class="button-group">
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!-- Jika pengguna sudah login -->
+                        <a href="http://localhost/Asdsos_PW/logout.php" class="btn" id="btn-1">Keluar</a>
+                    <?php else: ?>
+                        <!-- Jika pengguna belum login -->
+                        <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
+                    <?php endif; ?>
+                    <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
+                </div>
             </div>
-        </div>
-    </nav>
-</div>
+        </nav>
+
 
         <div class="main-1">
             <div class="welcome-text">
@@ -130,7 +106,6 @@ session_start();
                     <h5>Lain-Lain</h5>
                 </div>
             </div>
-
         </div>
     </div>
     <div class="main-3 d-flex">
@@ -192,7 +167,7 @@ session_start();
             </div>
         </div>
     </div>
-    
+
     <footer class="custom-footer d-flex flex-column">
         <div class="footer-main d-flex container-lg">
             <div class="items"><img src="assets/auth/FTI.png" alt="">

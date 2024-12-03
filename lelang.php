@@ -4,12 +4,12 @@ session_start();
 if (isset($_SESSION['username'])) {
 
 } else {
-            echo "<script>
+    echo "<script>
             alert('Anda harus login terlebih dahulu untuk mengajukan lelang.');
             window.location.href = 'http://localhost/Asdsos_PW/login.php';
             </script>";
-            exit; // Hentikan eksekusi script lebih lanjut
-        }
+    exit; // Hentikan eksekusi script lebih lanjut
+}
 
 include 'proses/koneksi.php'; // Pastikan koneksi database di-load
 
@@ -47,26 +47,6 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="http://localhost/Asdsos_PW/style.css">
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-    /* Atur ukuran logo */
-.brand img {
-    max-height: 50px; /* Sesuaikan dengan ukuran yang diinginkan */
-    width: auto; /* Otomatis sesuaikan lebar dengan proporsi */
-    margin-right: 10px; /* Tambahkan jarak dengan teks "Lelang" jika perlu */
-    display: inline-block;
-    vertical-align: middle; /* Sejajarkan dengan teks */
-}
-
-/* Tambahkan style untuk brand */
-.brand {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem; /* Ukuran teks di sebelah logo */
-    font-weight: bold;
-    color: #000; /* Warna teks */
-}
-
-</style>
 </head>
 
 
@@ -77,7 +57,7 @@ $result = $conn->query($sql);
         <nav class="navbar navbar-expand-lg d-flex custom-navbar">
             <div class="brand">
                 <img class="img-fluid" id="logo-collapse" src="assets/auth/lelang.png" alt="Logo">
-                Lelang
+                <p>Lelang</p>
             </div>
             <div class="d-flex menu ms-auto align-items-center">
                 <div class="menu-group">
@@ -89,7 +69,7 @@ $result = $conn->query($sql);
                 <div class="welcome-message">
                     <?php if (isset($_SESSION['username'])): ?>
                         <!-- Jika pengguna sudah login -->
-                        <span class="welcome-text"><?php echo htmlspecialchars($_SESSION['username']);?></span>
+                        <span class="welcome-text"><?php echo htmlspecialchars($_SESSION['username']); ?></span>
                     <?php else: ?>
 
                     <?php endif; ?>
@@ -121,34 +101,34 @@ $result = $conn->query($sql);
     <div class="button-group">
         <h2>Katalog Lot Lelang</h2>
     </div>
-       <?php
-        if ($result->num_rows > 0): ?>
-            <div class="container-md">
-                <div class="main-lelang-1">
-                    <div class="lelang-container d-flex flex-wrap">
-                        <?php while ($row = $result->fetch_assoc()): ?>
-                            <div class="card m-2" style="width: 18rem;">
-                                <img src="http://localhost/Asdsos_PW/assets/produk/<?= htmlspecialchars($row['gambar']); ?>" class="card-img-top"
-                                    alt="<?= htmlspecialchars($row['nama_barang']); ?>">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= htmlspecialchars($row['nama_barang']); ?></h5>
-                                    <p class="card-text">Harga Awal: Rp <?= number_format($row['harga_awal'], 0, ',', '.'); ?></p>
-                                    <p class="card-text">Durasi: <?= date('d-m-Y H:i', strtotime($row['durasi_lelang'])); ?></p>
-                                    <a href="beli.php?id=<?= $row['id']; ?>" class="btn btn-primary">Beli</a>
-                                </div>
+    <?php
+    if ($result->num_rows > 0): ?>
+        <div class="container-md">
+            <div class="main-lelang-1">
+                <div class="lelang-container d-flex flex-wrap">
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <div class="card m-2" style="width: 18rem;">
+                            <img src="http://localhost/Asdsos_PW/assets/produk/<?= htmlspecialchars($row['gambar']); ?>"
+                                class="card-img-top" alt="<?= htmlspecialchars($row['nama_barang']); ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= htmlspecialchars($row['nama_barang']); ?></h5>
+                                <p class="card-text">Harga Awal: Rp <?= number_format($row['harga_awal'], 0, ',', '.'); ?></p>
+                                <p class="card-text">Durasi: <?= date('d-m-Y H:i', strtotime($row['durasi_lelang'])); ?></p>
+                                <a href="beli.php?id=<?= $row['id']; ?>" class="btn btn-primary">Beli</a>
                             </div>
-                        <?php endwhile; ?>
-                    </div>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
             </div>
-        <?php else: ?>
-            <div class="container-md">
-                <p class="text-center">Tidak ada barang yang tersedia untuk dilelang.</p>
-            </div>
-        <?php endif; ?>
-                        
+        </div>
+    <?php else: ?>
+        <div class="container-md">
+            <p class="text-center">Tidak ada barang yang tersedia untuk dilelang.</p>
+        </div>
+    <?php endif; ?>
 
-        <footer class="custom-footer d-flex flex-column">
+
+    <footer class="custom-footer d-flex flex-column">
         <div class="footer-main d-flex container-lg">
             <div class="items"><img src="assets/auth/FTI.png" alt="">
             </div>

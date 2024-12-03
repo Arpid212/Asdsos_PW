@@ -71,23 +71,7 @@ $conn->close();
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Atur ukuran logo */
-    .brand img {
-        max-height: 50px; /* Sesuaikan dengan ukuran yang diinginkan */
-        width: auto; /* Otomatis sesuaikan lebar dengan proporsi */
-        margin-right: 10px; /* Tambahkan jarak dengan teks "Lelang" jika perlu */
-        display: inline-block;
-        vertical-align: middle; /* Sejajarkan dengan teks */
-    }
 
-    /* Tambahkan style untuk brand */
-    .brand {
-        display: flex;
-        align-items: center;
-        font-size: 1.5rem; /* Ukuran teks di sebelah logo */
-        font-weight: bold;
-        color: #000; /* Warna teks */
-    }
     </style>
 </head>
 
@@ -96,7 +80,7 @@ $conn->close();
         <nav class="navbar navbar-expand-lg d-flex custom-navbar">
             <div class="brand">
                 <img class="img-fluid" id="logo-collapse" src="assets/auth/lelang.png" alt="Logo">
-                Lelang
+                <p>Lelang</p>
             </div>
             <div class="d-flex menu ms-auto align-items-center">
                 <div class="menu-group">
@@ -107,7 +91,7 @@ $conn->close();
                 <div class="welcome-message">
                     <?php if (isset($_SESSION['username'])): ?>
                         <!-- Jika pengguna sudah login -->
-                        <span class="welcome-text"><?php echo htmlspecialchars($_SESSION['username']);?></span>
+                        <span class="welcome-text"><?php echo htmlspecialchars($_SESSION['username']); ?></span>
                     <?php else: ?>
 
                     <?php endif; ?>
@@ -125,6 +109,7 @@ $conn->close();
                 </div>
             </div>
         </nav>
+    </div>
 
     <div class="container-md">
         <div class="main-ajuan d-flex flex-column align-items-center">
@@ -132,7 +117,8 @@ $conn->close();
             <div class="sub-main d-flex justify-content-center container mt-3">
                 <div class="form">
 
-                    <form action="proses/tambah_barang_proses.php" method="POST" enctype="multipart/form-data" class="container">
+                    <form action="proses/tambah_barang_proses.php" method="POST" enctype="multipart/form-data"
+                        class="container">
                         <h2>Biodata Diri</h2>
                         <hr>
                         <div class="form-input">
@@ -158,38 +144,42 @@ $conn->close();
                         </div>
                     </form>
 
-                    <form action="proses/tambah_barang_proses.php" method="POST" enctype="multipart/form-data" class="container">
+                    <form action="proses/tambah_barang_proses.php" method="POST" enctype="multipart/form-data"
+                        class="container">
                         <h2>Rincian Barang</h2>
-                            <hr>
-                            <div class="form-input">
-                                <label for="nama_barang">Nama Barang :</label>
-                                <input type="text" name="nama_barang" id="nama_barang" placeholder="Masukan Nama Barang" required>
-                            </div>
-                            <div class="form-input">
-                                <label for="deskripsi">Deskripsi Barang :</label>
-                                <input type="text" name="deskripsi" id="deskripsi" placeholder="Masukan Deskripsi" maxlength="124" required>
-                            </div>
-                            <div class="form-input">
-                                <label for="harga">Harga Awal (Rp):</label>
-                                <input type="number" name="harga_awal" placeholder="Harga Awal" step="0.01" required><br>
-                            </div>
-                            <div class="form-input">
-                                <label for="foto">Upload Foto Barang:</label>
-                                <input type="file" name="foto" id="foto" accept="image/*" required>
-                            </div>
-                            <div class="form-input">
-                                <label for="waktu">Lama Durasi</label>
-                                <input type="datetime-local" name="durasi_lelang" required><br>
-                            </div>
-                            <div class="form-check mt-4">
-                                <input class="form-check-input" type="checkbox" id="terms" required>
-                                <label class="form-check-label" for="terms">
-                                    Saya telah membaca dan menyetujui <a href="terms.html" target="_blank">syarat dan ketentuan</a>.
-                                </label>
-                            </div>
-                            <div class="form-input mt-3">
-                                <button type="submit" id="submit-btn" class="btn btn-primary">Ajukan</button>
-                            </div>
+                        <hr>
+                        <div class="form-input">
+                            <label for="nama_barang">Nama Barang :</label>
+                            <input type="text" name="nama_barang" id="nama_barang" placeholder="Masukan Nama Barang"
+                                required>
+                        </div>
+                        <div class="form-input">
+                            <label for="deskripsi">Deskripsi Barang :</label>
+                            <input type="text" name="deskripsi" id="deskripsi" placeholder="Masukan Deskripsi"
+                                maxlength="124" required>
+                        </div>
+                        <div class="form-input">
+                            <label for="harga">Harga Awal (Rp):</label>
+                            <input type="number" name="harga_awal" placeholder="Harga Awal" step="0.01" required><br>
+                        </div>
+                        <div class="form-input">
+                            <label for="foto">Upload Foto Barang:</label>
+                            <input type="file" name="foto" id="foto" accept="image/*" required>
+                        </div>
+                        <div class="form-input">
+                            <label for="waktu">Lama Durasi</label>
+                            <input type="datetime-local" name="durasi_lelang" required><br>
+                        </div>
+                        <div class="form-check mt-4">
+                            <input class="form-check-input" type="checkbox" id="terms" required>
+                            <label class="form-check-label" for="terms">
+                                Saya telah membaca dan menyetujui <a href="terms.html" target="_blank">syarat dan
+                                    ketentuan</a>.
+                            </label>
+                        </div>
+                        <div class="form-input mt-3">
+                            <button type="submit" id="submit-btn" class="btn btn-primary">Ajukan</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -242,7 +232,7 @@ $conn->close();
             <p>© Pasteright 2024. Auction Vault, Universitas Kristen Satya Wacana.</p>
         </div>
     </footer>
-    
+
     <script>
         const termsCheckbox = document.getElementById("terms");
         const submitButton = document.getElementById("submit-btn");
