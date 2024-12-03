@@ -16,11 +16,25 @@ if (isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pusat Bantuan | AuctionVault</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="valescaa.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost/Asdsos_PW/style.css">
+</head>
 
 </head>
 
@@ -70,30 +84,52 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
 
-        <div class="main-3 mt-5">
-            <h2 class="text-center mb-5">Hubungi Kami</h2>
-            <div class="contact-form container">
-                <form action="#" method="POST">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+
+    <footer class="custom-footer d-flex flex-column">
+        <div class="footer-main d-flex container-lg">
+            <div class="items"><img src="assets/auth/FTI.png" alt="">
+            </div>
+            <div class="items">
+                <h4>Layanan</h4>
+                <p>Daftar Barang Lelang</p>
+                <p>Daftar Kelas Lelang</p>
+                <p>Ijin Operasional Perlelangan</p>
+                <p>Lowongan Kerja Part II</p>
+                <p>Laporan Kinerja</p>
+                <p>Ijin Pindah Wilayah Jabatan</p>
+                <p>Ijin Bolos Kuliah</p>
+            </div>
+            <div class="items">
+                <h4>Hubungi Kami</h4>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/call.png">
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                    <p>Call Center 692-691</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/email.png">
                     </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Pesan</label>
-                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    <p>auction.care@uksw.edu</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/facebook.png">
                     </div>
-                    <button type="submit" class="btn btn-primary">Kirim</button>
-                </form>
+                    <p>Auction Vault</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/lokasi.png">
+                    </div>
+                    <p>Gedung FTI UKSW, Jl. Notohomidjodjo, Blotongan, Salatiga</p>
+                </div>
             </div>
         </div>
-    </div>
-
-    <footer class="custom-footer d-flex justify-content-center flex-column mt-5">
-        <p class="text-center">© 2024 AuctionVault. Semua Hak Dilindungi.</p>
+        <div class="copyright d-flex justify-content-start align-items-center">
+            <p>© Pasteright 2024. Auction Vault, Universitas Kristen Satya Wacana.</p>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

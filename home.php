@@ -160,9 +160,10 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
     </div>
+    
     <footer class="custom-footer d-flex flex-column">
         <div class="footer-main d-flex container-lg">
-            <div class="items"><img src="assets/" alt="">
+            <div class="items"><img src="assets/auth/FTI.png" alt="">
             </div>
             <div class="items">
                 <h4>Layanan</h4>

@@ -51,7 +51,11 @@ $conn->close();
         
         <?php if (isset($barang)): ?>
             <div class="card">
-                <img src="<?php echo htmlspecialchars($barang['gambar']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($barang['nama_barang']); ?>">
+                <!-- Perbaikan jalur gambar -->
+                <img src="assets/produk/<?php echo htmlspecialchars($barang['gambar']); ?>" 
+                     class="card-img-top" 
+                     alt="<?php echo htmlspecialchars($barang['nama_barang']); ?>">
+                     
                 <div class="card-body">
                     <h5 class="card-title"><?php echo htmlspecialchars($barang['nama_barang']); ?></h5>
                     <p class="card-text"><?php echo htmlspecialchars($barang['deskripsi']); ?></p>
@@ -64,4 +68,51 @@ $conn->close();
         <?php endif; ?>
     </div>
 </body>
+
+<footer class="custom-footer d-flex flex-column">
+        <div class="footer-main d-flex container-lg">
+            <div class="items"><img src="assets/auth/FTI.png" alt="">
+            </div>
+            <div class="items">
+                <h4>Layanan</h4>
+                <p>Daftar Barang Lelang</p>
+                <p>Daftar Kelas Lelang</p>
+                <p>Ijin Operasional Perlelangan</p>
+                <p>Lowongan Kerja Part II</p>
+                <p>Laporan Kinerja</p>
+                <p>Ijin Pindah Wilayah Jabatan</p>
+                <p>Ijin Bolos Kuliah</p>
+            </div>
+            <div class="items">
+                <h4>Hubungi Kami</h4>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/call.png">
+                    </div>
+                    <p>Call Center 692-691</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/email.png">
+                    </div>
+                    <p>auction.care@uksw.edu</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/facebook.png">
+                    </div>
+                    <p>Auction Vault</p>
+                </div>
+                <div class="contact">
+                    <div class="img">
+                        <img src="assets/footer/lokasi.png">
+                    </div>
+                    <p>Gedung FTI UKSW, Jl. Notohomidjodjo, Blotongan, Salatiga</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright d-flex justify-content-start align-items-center">
+            <p>© Pasteright 2024. Auction Vault, Universitas Kristen Satya Wacana.</p>
+        </div>
+    </footer>
 </html>

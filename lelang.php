@@ -1,19 +1,22 @@
 <?php
-// Koneksi ke database
-$conn = new mysqli('localhost', 'root', '', 'db_lelang', 3308);
+session_start();
 
-// Periksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
+if (isset($_SESSION['username'])) {
+    echo "WELLCOME, Member " . htmlspecialchars($_SESSION['username']);
+} else {
+            echo "<script>
+            alert('Anda harus login terlebih dahulu untuk mengajukan lelang.');
+            window.location.href = 'http://localhost/Asdsos_PW/login.php';
+            </script>";
+            exit; // Hentikan eksekusi script lebih lanjut
+        }
 
-// Query untuk mengambil data barang dari database
-$query = "SELECT * FROM barang WHERE status='terverifikasi' ORDER BY created_at DESC";
-$result = $conn->query($query);
+include 'proses/koneksi.php'; // Pastikan koneksi database di-load
 
-if (!$result) {
-    die("Error pada query: " . $conn->error);
-}
+// Ambil data barang dari database
+$sql = "SELECT * FROM barang WHERE status = 'terverifikasi'";
+$result = $conn->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -70,44 +73,46 @@ if (!$result) {
         </nav>
     </div>
 
-
-
     <div class="main-lelang-ajuan d-flex justify-content-center">
         <div class="container d-flex flex-column align-items-center">
             <h1>Anda ingin mengajukan lelang ke Auction Vault?</h1>
             <p>Daftarkan sekarang juga barang yang ingin anda lelangkan!</p>
-            <a href="ajuan.php" class="btn" id="btn-dftl">Daftar Sekarang!</a>
+            <a href="http://localhost/Asdsos_PW/ajuan.php" class="btn" id="btn-dftl">Daftar Sekarang!</a>
         </div>
     </div>
+
     <!-- Katalog -->
-    <div class="container-md">
-        <div class="main-lelang-1">
-            <h2>Katalog Lot Lelang</h2>
-            <div class="lelang-container d-flex flex-wrap">
-                <?php if ($result->num_rows > 0): ?>
-                    <?php while ($row = $result->fetch_assoc()): ?>
-                        <div class="card m-2" style="width: 18rem;">
-                            <img src="<?= htmlspecialchars($row['gambar']); ?>" class="card-img-top"
-                                alt="<?= htmlspecialchars($row['nama_barang']); ?>">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= htmlspecialchars($row['nama_barang']); ?></h5>
-                                <p class="card-text">Harga Awal: Rp <?= number_format($row['harga_awal'], 0, ',', '.'); ?></p>
-                                <p class="card-text">Durasi: <?= date('d-m-Y H:i', strtotime($row['durasi_lelang'])); ?></p>
-                                <a href="beli.php?id=<?= $row['id']; ?>" class="btn btn-primary">Beli</a>
+    <h2>Katalog Lot Lelang</h2>
+       <?php
+        if ($result->num_rows > 0): ?>
+            <div class="container-md">
+                <div class="main-lelang-1">
+                    <div class="lelang-container d-flex flex-wrap">
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <div class="card m-2" style="width: 18rem;">
+                                <img src="http://localhost/Asdsos_PW/assets/produk/<?= htmlspecialchars($row['gambar']); ?>" class="card-img-top"
+                                    alt="<?= htmlspecialchars($row['nama_barang']); ?>">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= htmlspecialchars($row['nama_barang']); ?></h5>
+                                    <p class="card-text">Harga Awal: Rp <?= number_format($row['harga_awal'], 0, ',', '.'); ?></p>
+                                    <p class="card-text">Durasi: <?= date('d-m-Y H:i', strtotime($row['durasi_lelang'])); ?></p>
+                                    <a href="beli.php?id=<?= $row['id']; ?>" class="btn btn-primary">Beli</a>
+                                </div>
                             </div>
-                        </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <p>Tidak ada barang yang tersedia untuk dilelang.</p>
-                <?php endif; ?>
+                        <?php endwhile; ?>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        <?php else: ?>
+            <div class="container-md">
+                <p class="text-center">Tidak ada barang yang tersedia untuk dilelang.</p>
+            </div>
+        <?php endif; ?>
+                        
 
-
-    <footer class="custom-footer d-flex flex-column">
+        <footer class="custom-footer d-flex flex-column">
         <div class="footer-main d-flex container-lg">
-            <div class="items"><img src="/docs/assets/" alt="">
+            <div class="items"><img src="assets/auth/FTI.png" alt="">
             </div>
             <div class="items">
                 <h4>Layanan</h4>
@@ -123,25 +128,25 @@ if (!$result) {
                 <h4>Hubungi Kami</h4>
                 <div class="contact">
                     <div class="img">
-                        <img src="/docs/assets/footer/call.png">
+                        <img src="assets/footer/call.png">
                     </div>
                     <p>Call Center 692-691</p>
                 </div>
                 <div class="contact">
                     <div class="img">
-                        <img src="/docs/assets/footer/email.png">
+                        <img src="assets/footer/email.png">
                     </div>
                     <p>auction.care@uksw.edu</p>
                 </div>
                 <div class="contact">
                     <div class="img">
-                        <img src="/docs/assets/footer/facebook.png">
+                        <img src="assets/footer/facebook.png">
                     </div>
                     <p>Auction Vault</p>
                 </div>
                 <div class="contact">
                     <div class="img">
-                        <img src="/docs/assets/footer/lokasi.png">
+                        <img src="assets/footer/lokasi.png">
                     </div>
                     <p>Gedung FTI UKSW, Jl. Notohomidjodjo, Blotongan, Salatiga</p>
                 </div>
@@ -154,4 +159,3 @@ if (!$result) {
 </body>
 
 </html>
-<?php $conn->close(); ?>
