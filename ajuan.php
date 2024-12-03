@@ -1,12 +1,6 @@
 <?php
 
 session_start(); // Memulai sesi untuk memeriksa login
-if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
-    // Jika pengguna sudah login, tampilkan pesan selamat datang
-    echo "WELCOME, Member " . htmlspecialchars($_SESSION['username']);
-} else {
-    die("Anda harus login dan terverifikasi untuk mengakses halaman ini.");
-}
 
 // Koneksi ke database MySQL
 $conn = new mysqli('localhost', 'root', '', 'db_lelang', 3308);
@@ -76,36 +70,69 @@ $conn->close();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Atur ukuran logo */
+    .brand img {
+        max-height: 50px; /* Sesuaikan dengan ukuran yang diinginkan */
+        width: auto; /* Otomatis sesuaikan lebar dengan proporsi */
+        margin-right: 10px; /* Tambahkan jarak dengan teks "Lelang" jika perlu */
+        display: inline-block;
+        vertical-align: middle; /* Sejajarkan dengan teks */
+    }
+
+    /* Tambahkan style untuk brand */
+    .brand {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem; /* Ukuran teks di sebelah logo */
+        font-weight: bold;
+        color: #000; /* Warna teks */
+    }
+    </style>
 </head>
 
 <body>
     <div class="container-md">
-    <nav class="navbar navbar-expand-lg d-flex custom-navbar">
+        <nav class="navbar navbar-expand-lg d-flex custom-navbar">
             <div class="brand">
-                <img class="img-fluid" id="logo-collapse" src="/Documents/">
+                <img class="img-fluid" id="logo-collapse" src="assets/auth/lelang.png" alt="Logo">
                 Lelang
             </div>
             <div class="d-flex menu ms-auto align-items-center">
                 <div class="menu-group">
                     <a href="http://localhost/Asdsos_PW/home.php">Beranda</a>
                     <a href="http://localhost/Asdsos_PW/lelang.php">Lelang</a>
-                    <a href="http://localhost/Asdsos_PW/pusatbantuan.php">Pusat Bantuan</a>
-                    <a href=""></a>
                 </div>
+
+                <div class="welcome-message">
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <!-- Jika pengguna sudah login -->
+                        <span class="welcome-text"><?php echo htmlspecialchars($_SESSION['username']);?></span>
+                    <?php else: ?>
+
+                    <?php endif; ?>
+                </div>
+
                 <div class="button-group">
-                    <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!-- Jika pengguna sudah login -->
+                        <a href="http://localhost/Asdsos_PW/logout.php" class="btn" id="btn-1">Keluar</a>
+                    <?php else: ?>
+                        <!-- Jika pengguna belum login -->
+                        <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
+                    <?php endif; ?>
                     <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
                 </div>
             </div>
         </nav>
-    </div>
 
     <div class="container-md">
         <div class="main-ajuan d-flex flex-column align-items-center">
             <h2 class="">Form Pengajuan Lelang</h2>
             <div class="sub-main d-flex justify-content-center container mt-3">
                 <div class="form">
-                    
+
+                    <form action="proses/tambah_barang_proses.php" method="POST" enctype="multipart/form-data" class="container">
                         <h2>Biodata Diri</h2>
                         <hr>
                         <div class="form-input">
@@ -129,8 +156,9 @@ $conn->close();
                             <label for="email">Email :</label>
                             <input type="email" name="email" id="email" placeholder="Masukan Email" required>
                         </div>
-                        <form action="proses/tambah_barang_proses.php" method="POST" enctype="multipart/form-data" class="container">
- 
+                    </form>
+
+                    <form action="proses/tambah_barang_proses.php" method="POST" enctype="multipart/form-data" class="container">
                         <h2>Rincian Barang</h2>
                             <hr>
                             <div class="form-input">
@@ -162,7 +190,7 @@ $conn->close();
                             <div class="form-input mt-3">
                                 <button type="submit" id="submit-btn" class="btn btn-primary">Ajukan</button>
                             </div>
-                        </form>
+                    </form>
                 </div>
             </div>
         </div>

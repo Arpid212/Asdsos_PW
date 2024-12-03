@@ -1,13 +1,6 @@
 <?php
 session_start();
 
-// Periksa apakah pengguna sudah login
-if (isset($_SESSION['username'])) {
-    // Jika pengguna sudah login, tampilkan pesan selamat datang
-    echo "WELLCOME, Member " . htmlspecialchars($_SESSION['username']);
-} else {
-
-}
 ?>
 
 
@@ -36,28 +29,67 @@ if (isset($_SESSION['username'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="http://localhost/Asdsos_PW/style.css">
+<style>
+    /* Atur ukuran logo */
+.brand img {
+    max-height: 50px; /* Sesuaikan dengan ukuran yang diinginkan */
+    width: auto; /* Otomatis sesuaikan lebar dengan proporsi */
+    margin-right: 10px; /* Tambahkan jarak dengan teks "Lelang" jika perlu */
+    display: inline-block;
+    vertical-align: middle; /* Sejajarkan dengan teks */
+}
+
+/* Tambahkan style untuk brand */
+.brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem; /* Ukuran teks di sebelah logo */
+    font-weight: bold;
+    color: #000; /* Warna teks */
+}
+
+</style>
 </head>
 
 <body>
     <div class="container-md">
-        <nav class="navbar navbar-expand-lg d-flex custom-navbar">
-            <div class="brand">
-                <img class="img-fluid" id="logo-collapse" src="/Documents/">
-                Lelang
+    <div class="container-md">
+    <nav class="navbar navbar-expand-lg d-flex custom-navbar">
+
+        <div class="brand">
+            <img class="img-fluid" id="logo-collapse" src="assets/auth/lelang.png" alt="Logo">
+            Lelang
+        </div>
+
+
+        <div class="d-flex menu ms-auto align-items-center">
+            <div class="menu-group">
+                <a href="http://localhost/Asdsos_PW/home.php">Beranda</a>
+                <a href="http://localhost/Asdsos_PW/lelang.php">Lelang</a>
             </div>
-            <div class="d-flex menu ms-auto align-items-center">
-                <div class="menu-group">
-                    <a href="http://localhost/Asdsos_PW/home.php">Beranda</a>
-                    <a href="http://localhost/Asdsos_PW/lelang.php">Lelang</a>
-                    <a href="http://localhost/Asdsos_PW/pusatbantuan.php">Pusat Bantuan</a>
-                    <a href=""></a>
-                </div>
-                <div class="button-group">
+            
+        <div class="welcome-message">
+            <?php if (isset($_SESSION['username'])): ?>
+                <!-- Jika pengguna sudah login -->
+                <span class="welcome-text"><?php echo htmlspecialchars($_SESSION['username']);?></span>
+            <?php else: ?>
+
+            <?php endif; ?>
+        </div>
+
+            <div class="button-group">
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <!-- Jika pengguna sudah login -->
+                    <a href="http://localhost/Asdsos_PW/logout.php" class="btn" id="btn-1">Keluar</a>
+                <?php else: ?>
+                    <!-- Jika pengguna belum login -->
                     <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
-                    <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
-                </div>
+                <?php endif; ?>
+                <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
             </div>
-        </nav>
+        </div>
+    </nav>
+</div>
 
         <div class="main-1">
             <div class="welcome-text">
@@ -106,7 +138,7 @@ if (isset($_SESSION['username'])) {
         <div class="hot d-flex align-items-end">
             <div class="tawar">
                 <div class="judul-tawar d-flex align-items-center">
-                    <img src="assets/apart.png">
+                    <img src="assets/penawaran/apart.png">
                     <div class="p">
                         Salatiga City II
                     </div>
@@ -125,7 +157,7 @@ if (isset($_SESSION['username'])) {
             <div class="cara-group d-flex justify-content-start">
                 <div class="cara">
                     <div class="isi-1">
-                        <img src="" alt="">
+                        <img src="assets/bid/.." alt="">
                     </div>
                     <div class="isi-2 container">
                         <h4>Open Bidding</h4>
@@ -137,7 +169,7 @@ if (isset($_SESSION['username'])) {
                 </div>
                 <div class="cara m-auto">
                     <div class="isi-1">
-                        <img src="" alt="">
+                        <img src="assets/bid/.." alt="">
                     </div>
                     <div class="isi-2 container">
                         <h4>e-Convetional</h4>
@@ -147,7 +179,7 @@ if (isset($_SESSION['username'])) {
                 </div>
                 <div class="cara">
                     <div class="isi-1">
-                        <img src="" alt="">
+                        <img src="assets/bid/.." alt="">
                     </div>
                     <div class="isi-2 container">
                         <h4>Close Bidding</h4>

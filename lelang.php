@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['username'])) {
-    echo "WELLCOME, Member " . htmlspecialchars($_SESSION['username']);
+
 } else {
             echo "<script>
             alert('Anda harus login terlebih dahulu untuk mengajukan lelang.');
@@ -47,26 +47,62 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="http://localhost/Asdsos_PW/style.css">
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+    /* Atur ukuran logo */
+.brand img {
+    max-height: 50px; /* Sesuaikan dengan ukuran yang diinginkan */
+    width: auto; /* Otomatis sesuaikan lebar dengan proporsi */
+    margin-right: 10px; /* Tambahkan jarak dengan teks "Lelang" jika perlu */
+    display: inline-block;
+    vertical-align: middle; /* Sejajarkan dengan teks */
+}
 
+/* Tambahkan style untuk brand */
+.brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem; /* Ukuran teks di sebelah logo */
+    font-weight: bold;
+    color: #000; /* Warna teks */
+}
+
+</style>
 </head>
+
+
 
 
 <body>
     <div class="container-md">
-    <nav class="navbar navbar-expand-lg d-flex custom-navbar">
+        <nav class="navbar navbar-expand-lg d-flex custom-navbar">
             <div class="brand">
-                <img class="img-fluid" id="logo-collapse" src="/Documents/">
+                <img class="img-fluid" id="logo-collapse" src="assets/auth/lelang.png" alt="Logo">
                 Lelang
             </div>
             <div class="d-flex menu ms-auto align-items-center">
                 <div class="menu-group">
                     <a href="http://localhost/Asdsos_PW/home.php">Beranda</a>
                     <a href="http://localhost/Asdsos_PW/lelang.php">Lelang</a>
-                    <a href="http://localhost/Asdsos_PW/pusatbantuan.php">Pusat Bantuan</a>
                     <a href=""></a>
                 </div>
+
+                <div class="welcome-message">
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <!-- Jika pengguna sudah login -->
+                        <span class="welcome-text"><?php echo htmlspecialchars($_SESSION['username']);?></span>
+                    <?php else: ?>
+
+                    <?php endif; ?>
+                </div>
+
                 <div class="button-group">
-                    <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!-- Jika pengguna sudah login -->
+                        <a href="http://localhost/Asdsos_PW/logout.php" class="btn" id="btn-1">Keluar</a>
+                    <?php else: ?>
+                        <!-- Jika pengguna belum login -->
+                        <a href="http://localhost/Asdsos_PW/login.php" class="btn" id="btn-1">Masuk</a>
+                    <?php endif; ?>
                     <a href="http://localhost/Asdsos_PW/signup.php" class="btn" id="btn-2">Daftar</a>
                 </div>
             </div>
@@ -82,7 +118,9 @@ $result = $conn->query($sql);
     </div>
 
     <!-- Katalog -->
-    <h2>Katalog Lot Lelang</h2>
+    <div class="button-group">
+        <h2>Katalog Lot Lelang</h2>
+    </div>
        <?php
         if ($result->num_rows > 0): ?>
             <div class="container-md">

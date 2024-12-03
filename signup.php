@@ -27,21 +27,24 @@
 </head>
 
 <div class="container d-flex justify-content-center align-items-center login">
-    <div class="bg-login d-flex">
-        <div class="bg-img">
-
-        </div>
+<div class="bg-login d-flex">
+    <!-- Tambahkan div tombol kembali -->
+    <div class="bg-img d-flex justify-content-center align-items-center">
+        <a href="http://localhost/Asdsos_PW/home.php" class="btn btn-primary btn-back-home">
+            Kembali ke Beranda
+        </a>
+    </div>
         <div class="bg-form d-flex justify-content-center align-items-center flex-column">
             <h1>Daftar Akun</h1>
             <form action="http://localhost/Asdsos_PW/proses/register_proses.php" method="POST" class="d-flex flex-column">
                 <div class="box-group d-flex flex-column align-items-center">
                     <div class="box-text">
-                        <img src="http://localhost/Asdsos_PW/Main/assets/auth/username.png">
+                        <img src="http://localhost/Asdsos_PW/assets/auth/username.png">
                         <label for="username"></label>
                         <input type="text" name="username" id="username" placeholder="Masukan Username" required>
                     </div>
                     <div class="box-text">
-                        <img src="http://localhost/Asdsos_PW/Main/assets/auth/password.png" alt="">
+                        <img src="http://localhost/Asdsos_PW/assets/auth/password.png" alt="">
                         <label for="password"></label>
                         <input type="password" name="password" id="password" placeholder="Masukan Password" required>
                     </div>

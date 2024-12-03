@@ -168,7 +168,6 @@ if (!$result) {
     <header>
         <h1>Dashboard Admin - Lelang Online</h1>
         <nav>
-            <a href="http://localhost/Asdsos_PW/kelola_lelang.php">Kelola Lelang</a>
             <a href="http://localhost/Asdsos_PW/logout.php">Logout</a>
         </nav>
     </header>
