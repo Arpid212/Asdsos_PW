@@ -15,8 +15,7 @@ $query = "UPDATE barang SET
           WHERE id='$id'";
 
 if ($conn->query($query)) {
-    header("Location: kelola_lelang.php");
+    header("Location: ../dashboard.php");
 } else {
     echo "Gagal mengupdate barang!";
 }
-?>

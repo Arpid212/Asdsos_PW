@@ -19,6 +19,7 @@ if (!$result) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,14 +46,16 @@ if (!$result) {
         /* Gaya untuk tema biru dan putih */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f9ff; /* Warna putih kebiruan */
+            background-color: #f5f9ff;
+            /* Warna putih kebiruan */
             color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #007bff; /* Warna biru */
+            background-color: #007bff;
+            /* Warna biru */
             color: white;
             padding: 20px;
             text-align: center;
@@ -79,7 +82,8 @@ if (!$result) {
         }
 
         main h2 {
-            color: #007bff; /* Warna biru */
+            color: #007bff;
+            /* Warna biru */
         }
 
         table {
@@ -88,14 +92,16 @@ if (!$result) {
             margin-top: 20px;
         }
 
-        table th, table td {
+        table th,
+        table td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
         }
 
         table th {
-            background-color: #007bff; /* Warna biru */
+            background-color: #007bff;
+            /* Warna biru */
             color: white;
         }
 
@@ -104,10 +110,15 @@ if (!$result) {
         }
 
         table tr:hover {
-            background-color: #e9f3ff; /* Warna biru muda */
+            background-color: #e9f3ff;
+            /* Warna biru muda */
         }
 
-        .btn-detail, .btn-edit, .btn-delete, .btn-approve, .btn-reject {
+        .btn-detail,
+        .btn-edit,
+        .btn-delete,
+        .btn-approve,
+        .btn-reject {
             text-decoration: none;
             padding: 5px 10px;
             color: white;
@@ -117,27 +128,33 @@ if (!$result) {
         }
 
         .btn-detail {
-            background-color: #007bff; /* Warna biru */
+            background-color: #007bff;
+            /* Warna biru */
         }
 
         .btn-edit {
-            background-color: #ffc107; /* Warna kuning */
+            background-color: #ffc107;
+            /* Warna kuning */
         }
 
         .btn-delete {
-            background-color: #dc3545; /* Warna merah */
+            background-color: #dc3545;
+            /* Warna merah */
         }
 
         .btn-approve {
-            background-color: #28a745; /* Warna hijau */
+            background-color: #28a745;
+            /* Warna hijau */
         }
 
         .btn-reject {
-            background-color: #6c757d; /* Warna abu-abu */
+            background-color: #6c757d;
+            /* Warna abu-abu */
         }
 
         footer {
-            background-color: #007bff; /* Warna biru */
+            background-color: #007bff;
+            /* Warna biru */
             color: white;
             text-align: center;
             padding: 10px 0;
@@ -145,6 +162,7 @@ if (!$result) {
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -175,9 +193,9 @@ if (!$result) {
             <tbody>
                 <?php if ($result->num_rows > 0): ?>
                     <?php $no = 1; // Inisialisasi nomor urut
-                        while ($row = $result->fetch_assoc()): ?>
+                    while ($row = $result->fetch_assoc()): ?>
                         <tr>
-                        <td class="border px-4 py-3 text-gray-700"><?= $no++ ?> </td>
+                            <td class="border px-4 py-3 text-gray-700"><?= $no++ ?> </td>
                             <td><?= htmlspecialchars($row['nama_barang']); ?></td>
                             <td>Rp <?= number_format($row['harga_awal'], 0, ',', '.'); ?></td>
                             <td><?= date('d-m-Y H:i', strtotime($row['durasi_lelang'])); ?></td>
@@ -185,7 +203,7 @@ if (!$result) {
                             <td>
                                 <a href="http://localhost/Asdsos_PW/detail_barang.php?id=<?= $row['id']; ?>" class="btn-detail">Detail</a>
                                 <a href="http://localhost/Asdsos_PW/edit_barang.php?id=<?= $row['id']; ?>" class="btn-edit">Edit</a>
-                                <a href="http://localhost/Asdsos_PW/hapus_barang.php?id=<?= $row['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus barang ini?');">Hapus</a>
+                                <a href="http://localhost/Asdsos_PW/proses/hapus_barang_proses.php?id=<?= $row['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus barang ini?');">Hapus</a>
                                 <a href="approved.php?id=<?= $row['id']; ?>" class="btn-approve" onclick="return confirm('Setujui barang ini?');">Approve</a>
                                 <a href="rejected.php?id=<?= $row['id']; ?>" class="btn-reject" onclick="return confirm('Tolak barang ini?');">Reject</a>
                             </td>
@@ -248,6 +266,7 @@ if (!$result) {
         </div>
     </footer>
 </body>
+
 </html>
 
 
