@@ -91,7 +91,7 @@ $barang = $result->fetch_assoc();
             <p><span>Nama:</span> <?= htmlspecialchars($barang['nama_barang']); ?></p>
             <p><span>Deskripsi:</span> <?= htmlspecialchars($barang['deskripsi']); ?></p>
             <p><span>Harga Awal:</span> Rp <?= number_format($barang['harga_awal'], 2, ',', '.'); ?></p>
-            <p><span>Durasi Lelang:</span> <?= htmlspecialchars($barang['durasi_lelang']); ?> hari</p>
+            <p><span>Durasi Lelang:</span> <?= htmlspecialchars($barang['durasi_lelang']); ?></p>
             <p><span>Status:</span> <?= htmlspecialchars($barang['status']); ?></p>
         </div>
         <a href="http://localhost/Asdsos_PW/dashboard.php" class="back-link">Kembali ke Dashboard</a>

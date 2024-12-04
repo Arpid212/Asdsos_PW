@@ -116,34 +116,6 @@ $conn->close();
             <h2 class="">Form Pengajuan Lelang</h2>
             <div class="sub-main d-flex justify-content-center container mt-3">
                 <div class="form">
-
-                    <form action="proses/tambah_barang_proses.php" method="POST" enctype="multipart/form-data"
-                        class="container">
-                        <h2>Biodata Diri</h2>
-                        <hr>
-                        <div class="form-input">
-                            <label for="nama">Nama Lengkap :</label>
-                            <input type="text" name="nama" id="nama" placeholder="Masukan Nama Lengkap" required>
-                        </div>
-                        <div class="form-input">
-                            <label for="nik">NIK :</label>
-                            <input type="number" name="nik" id="nik" placeholder="Masukan Nomer Induk Kependudukan"
-                                maxlength="16" required>
-                        </div>
-                        <div class="form-input">
-                            <label for="alamat">Alamat :</label>
-                            <input type="text" name="alamat" id="alamat" placeholder="Masukan Alamat Lengkap" required>
-                        </div>
-                        <div class="form-input">
-                            <label for="notlpn">No Telepon :</label>
-                            <input type="number" name="notlpn" id="notlpn" placeholder="Masukan Nomer Telepon" required>
-                        </div>
-                        <div class="form-input">
-                            <label for="email">Email :</label>
-                            <input type="email" name="email" id="email" placeholder="Masukan Email" required>
-                        </div>
-                    </form>
-
                     <form action="proses/tambah_barang_proses.php" method="POST" enctype="multipart/form-data"
                         class="container">
                         <h2>Rincian Barang</h2>

@@ -39,7 +39,7 @@ $login = isset($_SESSION['username']); // Periksa apakah pengguna sudah login
         </div>
         <div class="bg-form d-flex justify-content-center align-items-center flex-column">
             <h1>Selamat Datang!</h1>
-            <form action="" class="d-flex flex-column">
+            <form action="http://localhost/Asdsos_PW/proses/login_proses.php" method="POST" class="d-flex flex-column">
                 <div class="box-group d-flex flex-column align-items-center">
                     <div class="box-text">
                         <img src="assets/auth/username.png">
@@ -52,12 +52,14 @@ $login = isset($_SESSION['username']); // Periksa apakah pengguna sudah login
                         <input type="password" name="password" id="password" placeholder="Password" required>
                     </div>
                 </div>
-                
+                <div class="d-flex justify-content-center button-group">
+                    <input type="submit" value="Masuk">
+                </div>
             </form>
             <div class="d-flex justify-content-center button-group">
                 <a href="signup.php"><input type="submit" value="Belum punya akun?" id="daftar"></a>
-                <input type="submit" value="Masuk">
             </div>
+            
         </div>
     </div>
 </div>
